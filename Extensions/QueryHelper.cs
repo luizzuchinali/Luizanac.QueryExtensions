@@ -9,6 +9,12 @@ namespace Utils.Extensions
 {
     public static class QueryHelper
     {
+        /// <summary>
+        /// Filter by asc or desc passing an string
+        /// </summary>
+        /// <param name="source">The source IQueryable</param>
+        /// <param name="sort">Asc, Desc</param>
+        /// <typeparam name="TSource">Type of data</typeparam>
         public static IQueryable<TSource> OrderByString<TSource>(this IQueryable<TSource> source, string sort)
         {
             if (source == null)
@@ -23,6 +29,14 @@ namespace Utils.Extensions
             return source;
         }
 
+        /// <summary>
+        /// Paginates an IQueryable
+        /// </summary>
+        /// <param name="query">The IQueriable</param>
+        /// <param name="page">Currrent page</param>
+        /// <param name="size">Number of data to get</param>
+        /// <typeparam name="T">Type of the data</typeparam>
+        /// <returns></returns>
         public static async Task<Pagination<IList<T>>> Paginate<T>(this IQueryable<T> query, int page, int size)
         {
             var entries = query.Skip((page - 1) * size).Take(size);
