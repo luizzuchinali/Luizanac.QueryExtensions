@@ -6,7 +6,7 @@ namespace Utils.Extensions
     public static class PropertyHelper
     {
         /// <summary>
-        /// Get value of an property by string
+        /// Get value of a property by string
         /// </summary>
         /// <param name="obj">Object that hold the property</param>
         /// <param name="name">Name of the property</param>
