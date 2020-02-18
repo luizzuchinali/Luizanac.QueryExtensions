@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.0.1</Version>
+    <Version>2.0.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Luizanac.Utils</AssemblyName>
     <RootNamespace>Luizanac.Utils</RootNamespace>
-    <Description>Pagination and filter helper</Description>
-    <PackageTags>aspnetcore;pagination;filters;</PackageTags>
+    <Description>Pagination and filter helper - OrderByString</Description>
+    <PackageTags>efcore;aspnetcore;pagination;filters;</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
     
   </PropertyGroup>
 

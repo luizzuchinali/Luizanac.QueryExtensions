@@ -1,4 +1,4 @@
-namespace Utils.Extensions.Models
+namespace Luizanac.Utils.Extensions.Models
 {
     /// <summary>
     ///  The helper class to hold paginated data

@@ -1,4 +1,4 @@
-namespace Utils.Extensions.Models
+namespace Luizanac.Utils.Extensions.Models
 {
     public enum EPaginate
     {
