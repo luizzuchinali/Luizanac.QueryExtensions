@@ -1,10 +1,12 @@
+using Luizanac.Utils.Extensions.Interfaces;
+
 namespace Luizanac.Utils.Extensions.Models
 {
     /// <summary>
     ///  The helper class to hold paginated data
     /// </summary>
     /// <typeparam name="T">The type of paginated data</typeparam>
-    public class Pagination<T>
+    public class Pagination<T> : IPagination<T>
     {
         /// <summary>
         /// The paginated data

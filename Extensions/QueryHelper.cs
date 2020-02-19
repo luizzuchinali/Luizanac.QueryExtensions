@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+using Luizanac.Utils.Extensions.Interfaces;
 using Luizanac.Utils.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -83,7 +84,7 @@ namespace Luizanac.Utils.Extensions {
         /// <param name="size">Number of data to get</param>
         /// <typeparam name="T">Type of the data</typeparam>
         /// <returns></returns>
-        public static async Task<Pagination<IList<T>>> Paginate<T> (this IQueryable<T> query, int page, int size) {
+        public static async Task<IPagination<IList<T>>> Paginate<T> (this IQueryable<T> query, int page, int size) {
             var entries = query.Skip ((page - 1) * size).Take (size);
             var count = await query.CountAsync ();
             var totalPages = (int) Math.Ceiling (count / (float) size);
