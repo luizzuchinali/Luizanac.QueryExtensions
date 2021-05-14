@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luizanac.Utils.Extensions.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luizanac.Utils.Extensions", "src\Luizanac.Utils.Extensions\Luizanac.Utils.Extensions.csproj", "{2176C9CE-31E4-4E03-A703-16523D2ED78F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luizanac.Utils.App", "src\Luizanac.Utils.App\Luizanac.Utils.App.csproj", "{6213C3A5-FCE0-464E-8B03-4FDE723D223E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,9 +48,22 @@ Global
 		{2176C9CE-31E4-4E03-A703-16523D2ED78F}.Release|x64.Build.0 = Release|Any CPU
 		{2176C9CE-31E4-4E03-A703-16523D2ED78F}.Release|x86.ActiveCfg = Release|Any CPU
 		{2176C9CE-31E4-4E03-A703-16523D2ED78F}.Release|x86.Build.0 = Release|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Debug|x64.Build.0 = Debug|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Debug|x86.Build.0 = Debug|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Release|x64.ActiveCfg = Release|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Release|x64.Build.0 = Release|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Release|x86.ActiveCfg = Release|Any CPU
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{72C9C0EA-0B74-4559-A373-07C9261542DC} = {87F25DD8-A7E5-44D4-BF31-C5269264C144}
 		{2176C9CE-31E4-4E03-A703-16523D2ED78F} = {87F25DD8-A7E5-44D4-BF31-C5269264C144}
+		{6213C3A5-FCE0-464E-8B03-4FDE723D223E} = {87F25DD8-A7E5-44D4-BF31-C5269264C144}
 	EndGlobalSection
 EndGlobal
