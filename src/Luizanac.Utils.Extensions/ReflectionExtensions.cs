@@ -28,15 +28,15 @@ namespace Luizanac.Utils.Extensions
             return Expression.Lambda(property, new ParameterExpression[] { arg });
         }
 
-        public static MethodInfo GetMethodInfo(this string methodName, Type type, int parametersCount)
+        public static MethodInfo GetMethodInfo(this string methodName, Type type, int parametersCount, bool genericMethodDefinition = true)
         {
             var method = type.GetMethods()
-                .Where(m => m.Name == methodName && m.IsGenericMethodDefinition)
+                .Where(m => m.Name == methodName && m.IsGenericMethodDefinition == genericMethodDefinition)
                 .Where(m =>
                 {
                     var parameters = m.GetParameters().ToList();
                     return parameters.Count == parametersCount;
-                }).Single();
+                }).First();
 
             return method;
         }

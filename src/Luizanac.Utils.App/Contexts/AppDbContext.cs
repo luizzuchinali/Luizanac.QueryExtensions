@@ -3,6 +3,7 @@ using System.Linq;
 using Luizanac.Utils.App.Entities;
 using Luizanac.Utils.Seeds.App;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Luizanac.Utils.Contexts.App
 {
@@ -11,6 +12,7 @@ namespace Luizanac.Utils.Contexts.App
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("LOCAL_DB_CONNECTION_STRING"));
+            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Debug);
         }
 
         public DbSet<Client> Clients { get; protected set; }

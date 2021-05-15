@@ -11,41 +11,35 @@ namespace Luizanac.Utils.Extensions.Models
 		public Term(string filters)
 		{
 
-			_ = filters ?? throw new ArgumentNullException(nameof(filters));
+			if (string.IsNullOrWhiteSpace(filters)) throw new ArgumentNullException(nameof(filters));
 
 			var filterSplits = filters.Split(Operators, StringSplitOptions.RemoveEmptyEntries)
 					.Select(t => t.Trim()).ToArray();
 			Names = Regex.Split(filterSplits[0], EscapedPipePattern).Select(t => t.Trim()).ToArray();
 			Values = filterSplits.Length > 1 ? Regex.Split(filterSplits[1], EscapedPipePattern).Select(t => t.Trim()).ToArray() : null;
 			Operator = Array.Find(Operators, o => filters.Contains(o)) ?? "==";
-			OperatorParsed = GetOperatorParsed(Operator);
-			OperatorIsNegated = OperatorParsed != EFilterOperator.NotEquals && Operator.StartsWith("!");
+			ParsedOperator = GetOperatorParsed(Operator);
+			OperatorIsNegated = ParsedOperator != EFilterOperator.NotEquals && Operator.StartsWith("!");
 		}
 
 		private const string EscapedPipePattern = @"(?<!($|[^\\])(\\\\)*?\\)\|";
 
 		private static readonly string[] Operators = new string[] {
-					"!@=",
-					"!_=",
-					"!=",
-					"!@=",
-					"!_=",
-					"==",
-					"@=",
-					"_=",
-					"==",
-					"!=",
-					">=",
-					"<=",
-					">",
-					"<",
-					"@=",
-					"_="
+			"@=",
+			"!@=",
+			"_=",
+			"!_=",
+			"!=",
+			"==",
+			">=",
+			"<=",
+			">",
+			"<",
 		};
 
 		public string[] Names { get; private set; }
 
-		public EFilterOperator OperatorParsed { get; private set; }
+		public EFilterOperator ParsedOperator { get; private set; }
 
 		public string[] Values { get; private set; }
 
@@ -53,7 +47,7 @@ namespace Luizanac.Utils.Extensions.Models
 
 		private EFilterOperator GetOperatorParsed(string @operator)
 		{
-			switch (@operator.TrimEnd('*'))
+			switch (@operator)
 			{
 				case "==":
 					return EFilterOperator.Equals;
@@ -68,11 +62,13 @@ namespace Luizanac.Utils.Extensions.Models
 				case "<=":
 					return EFilterOperator.LessThanOrEqualTo;
 				case "@=":
-				case "!@=":
 					return EFilterOperator.Contains;
+				case "!@=":
+					return EFilterOperator.NotContains;
 				case "_=":
-				case "!_=":
 					return EFilterOperator.StartsWith;
+				case "!_=":
+					return EFilterOperator.NotStartsWith;
 				default:
 					return EFilterOperator.Equals;
 			}

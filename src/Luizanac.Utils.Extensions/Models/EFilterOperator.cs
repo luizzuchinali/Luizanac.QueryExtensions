@@ -13,6 +13,8 @@ namespace Luizanac.Utils.Extensions.Models
 		GreaterThanOrEqualTo,
 		LessThanOrEqualTo,
 		Contains,
+		NotContains,
 		StartsWith,
+		NotStartsWith,
 	}
 }

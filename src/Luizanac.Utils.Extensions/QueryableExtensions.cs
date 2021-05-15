@@ -75,7 +75,7 @@ namespace Luizanac.Utils.Extensions
 				var filterValue = converter.ConvertFromInvariantString(term.Values.First());
 				var constantValue = Expression.Constant(filterValue);
 				var valueExpression = Expression.Convert(constantValue, propertyType);
-				var operatorExpression = GetOperatorExpression(term.OperatorParsed, property, valueExpression);
+				var operatorExpression = term.ParsedOperator.GetOperatorExpression(property, valueExpression);
 				var lambdaExpression = Expression.Lambda<Func<TSource, bool>>(operatorExpression, parameter);
 
 				query = query.Where(lambdaExpression);
@@ -84,18 +84,40 @@ namespace Luizanac.Utils.Extensions
 			return query;
 		}
 
-
-		private static BinaryExpression GetOperatorExpression(this EFilterOperator @operator, Expression property, Expression constantExpression) => @operator switch
+		private static Expression GetOperatorExpression(this EFilterOperator @operator, MemberExpression property, UnaryExpression valueExpression)
 		{
-			EFilterOperator.GreaterThan => Expression.GreaterThan(property, constantExpression),
-			EFilterOperator.GreaterThanOrEqualTo => Expression.GreaterThanOrEqual(property, constantExpression),
-			EFilterOperator.LessThan => Expression.LessThan(property, constantExpression),
-			EFilterOperator.LessThanOrEqualTo => Expression.LessThanOrEqual(property, constantExpression),
-			EFilterOperator.Equals => Expression.Equal(property, constantExpression),
-			EFilterOperator.NotEquals => Expression.NotEqual(property, constantExpression),
-			_ => null
-		};
+			switch (@operator)
+			{
+				case EFilterOperator.GreaterThan:
+					return Expression.GreaterThan(property, valueExpression);
+				case EFilterOperator.GreaterThanOrEqualTo:
+					return Expression.GreaterThanOrEqual(property, valueExpression);
+				case EFilterOperator.LessThan:
+					return Expression.LessThan(property, valueExpression);
+				case EFilterOperator.LessThanOrEqualTo:
+					return Expression.LessThanOrEqual(property, valueExpression);
+				case EFilterOperator.Equals:
+					return Expression.Equal(property, valueExpression);
+				case EFilterOperator.NotEquals:
+					return Expression.NotEqual(property, valueExpression);
+				case EFilterOperator.StartsWith:
+					return GetMethodExpression("StartsWith", typeof(string), property, valueExpression);
+				case EFilterOperator.NotStartsWith:
+					return Expression.Negate(GetMethodExpression("StartsWith", typeof(string), property, valueExpression));
+				case EFilterOperator.Contains:
+					return GetMethodExpression("Contains", typeof(string), property, valueExpression);
+				case EFilterOperator.NotContains:
+					return Expression.Negate(GetMethodExpression("Contains", typeof(string), property, valueExpression));
+				default:
+					return Expression.Equal(property, valueExpression);
+			}
+		}
 
+		private static Expression GetMethodExpression(string methodName, Type methodType, MemberExpression property, UnaryExpression valueExpression)
+		{
+			var method = methodName.GetMethodInfo(methodType, 1, false);
+			return Expression.Call(property, method, valueExpression);
+		}
 
 		/// <summary>
 		/// Paginates an IQueryable
