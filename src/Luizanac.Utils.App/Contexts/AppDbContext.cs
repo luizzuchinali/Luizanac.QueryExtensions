@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Luizanac.Utils.App.Entities;
 using Luizanac.Utils.Seeds.App;
@@ -9,7 +10,7 @@ namespace Luizanac.Utils.Contexts.App
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Initial Catalog=LuizanacDev;User ID=sa;Password=Luizroot!;");
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("LOCAL_DB_CONNECTION_STRING"));
         }
 
         public DbSet<Client> Clients { get; protected set; }
