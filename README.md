@@ -1,7 +1,7 @@
 # Luizanac.QueryExtensions
 Simple and clean LINQ extensions library for .NET that **adds sorting, filtering, and pagination functionality to EntityFramework**.
 
-You can start just by adding "Luizanac.QueryExtensions". But if you only want EFCore dependencies in projects that access databases, you can use "Luizanac.QueryExtensions.Abstractions" on other projects and all will be fine :)
+You can start just by adding **"Luizanac.QueryExtensions"**. But if you only want EFCore dependencies in projects that access databases, you can use **"Luizanac.QueryExtensions.Abstractions"** on other projects and all will be fine :)
 
 ### Luizanac.QueryExtensions [![NuGet](https://img.shields.io/nuget/v/Luizanac.QueryExtensions.svg)](https://www.nuget.org/packages/Luizanac.QueryExtensions)
 
