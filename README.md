@@ -138,4 +138,4 @@ var paginatedData = await dbContext.Clients.AsNoTracking()
 ```
 
 ## License
-Luizanac.Extensions is licensed under Apache 2.0.
+Luizanac.QueryExtensions is licensed under Apache 2.0.
