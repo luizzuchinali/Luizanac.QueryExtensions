@@ -1,7 +1,7 @@
 # Luizanac.QueryExtensions
 Simple and clean LINQ extensions library for .NET that **adds sorting, filtering, and pagination functionality to EntityFramework**.
 
-You can start just by adding **"Luizanac.QueryExtensions"**. But if you only want EFCore dependencies in projects that access databases, you can use **"Luizanac.QueryExtensions.Abstractions"** on other projects and all will be fine :)
+You can start just by adding **"Luizanac.QueryExtensions"**. But if you only want EFCore dependencies in projects that access databases, you can use **"Luizanac.QueryExtensions.Abstractions"** on other projects and everything will be fine :) :)
 
 ### Luizanac.QueryExtensions [![NuGet](https://img.shields.io/nuget/v/Luizanac.QueryExtensions.svg)](https://www.nuget.org/packages/Luizanac.QueryExtensions)
 
@@ -35,7 +35,7 @@ public class Client
 
 ## OrderBy
 
-To use order by extension, you will need to pass **"property, asc/desc"** (You can use first level navigation properties to **"address.number, asc/desc"**, this will access **Address** property on **Client** and then **Number** on **Address**).
+To use **OrderBy** extension, you will need to pass **"property, asc/desc"** (You can use first level navigation properties to **"address.number, asc/desc"**, this will access **Address** property on **Client** and then **Number** on **Address**).
 
 ```C#
 var sort = "age,asc";
@@ -101,7 +101,7 @@ public interface IPagination<T>
 
 ## Filter by properties
 
-To use filter extension, you will ned to pass a string **"{property}{operator}{data}"** with your conditions separated by commas (Like order by extension, you can use first level navigation properties too).
+To use filter extension, you will need to pass a string **"{property}{operator}{data}"** with your conditions separated by commas (Like order by extension, you can use first level navigation properties too).
 
 below you can see all supported operators
 
@@ -163,4 +163,4 @@ var paginatedData = await dbContext.Clients.AsNoTracking()
 * 1.1.0 - Added the capability to use logical operator OR ( | ) and code improvements.
 
 ## License
-Luizanac.Extensions is licensed under Apache 2.0.
+Luizanac.QueryExtensions is licensed under Apache 2.0.
