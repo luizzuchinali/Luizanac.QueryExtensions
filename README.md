@@ -126,6 +126,27 @@ var clients = await dbContext.Clients.AsNoTracking().Filter(filters).ToListAsync
 //This will filter all clients by age greather than or equal to 16, email contains hotmail.com and name starts with h.
 ```
 
+you can use "|" to make OR. **"{property}|{property}{operator}{data}"** or **"{property}{operator}{data}|{data}"**
+
+```C#
+var sort = "age,asc";
+var filters = "age>=16,email@=hotmail.com|gmail.com,name|email_=luiz";
+var clients = await dbContext.Clients.AsNoTracking().Filter(filters).OrderBy(sort).ToListAsync();
+//This will filter all clients by age greather than or equal to 16, email contains hotmail.com and name starts with h.
+```
+
+The previous code will generate this SQL
+
+```SQL
+SELECT [c].[Id], [c].[Age], [c].[Email], [c].[Name]
+    FROM [Clients] AS [c]
+        WHERE 
+            (([c].[Age] >= 16) AND 
+            (([c].[Email] LIKE '%hotmail.com%') OR ([c].[Email] LIKE '%gmail.com%'))) AND 
+            (([c].[Name] LIKE 'luiz%') OR ([c].[Email] LIKE 'luiz%'))
+ORDER BY [c].[Age]
+```
+
 you can use all extensions together
 
 ```C#
@@ -136,6 +157,10 @@ var paginatedData = await dbContext.Clients.AsNoTracking()
             .OrderBy(sort)
             .Paginate(1, 3);
 ```
+
+## Patch notes
+
+* 1.1.0 - Added the capability to use logical operator OR ( | ) and code improvements.
 
 ## License
 Luizanac.Extensions is licensed under Apache 2.0.

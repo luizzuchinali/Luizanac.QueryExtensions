@@ -12,7 +12,7 @@ namespace Luizanac.QueryExtensions.Contexts.App
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("LOCAL_DB_CONNECTION_STRING"));
-            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Debug);
+            //optionsBuilder.LogTo(Console.WriteLine, LogLevel.Trace);
         }
 
         public DbSet<Client> Clients { get; protected set; }

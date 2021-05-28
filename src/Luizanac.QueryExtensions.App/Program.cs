@@ -22,19 +22,29 @@ var serializerOptions = new JsonSerializerOptions
 // _= StartsWith / !_= NotStartsWith = generate Like/ILike value%
 
 var sort = "age,asc";
-var filters = "age>=16,email@=hotmail.com,name_=h";
+// var filters = "age>=16,email@=hotmail.com,name_=h";
+var filters = "age>=16,email@=hotmail.com|gmail.com,name|email_=luiz";
 
 using var dbContext = new AppDbContext();
 var timer = Stopwatch.StartNew();
 
 timer.Start();
 var totalServerData = await dbContext.Clients.CountAsync();
+var sqlString =
+	dbContext.Clients
+		.AsNoTracking()
+		.Filter(filters)
+		.OrderBy(sort).ToQueryString();
+
+Console.WriteLine($"\n\n{sqlString}\n\n");
+
 var paginatedData =
 	await dbContext.Clients
 		.AsNoTracking()
 		.Filter(filters)
 		.OrderBy(sort)
 		.Paginate(1, 3);
+
 
 timer.Stop();
 

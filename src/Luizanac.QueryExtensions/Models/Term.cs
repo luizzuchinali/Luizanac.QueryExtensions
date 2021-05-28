@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Luizanac.QueryExtensions.Models
 {
-	public class Term : IEquatable<Term>
+	public class Term
 	{
 		public Term(string filters)
 		{
@@ -13,20 +13,19 @@ namespace Luizanac.QueryExtensions.Models
 
 			var filterSplits = filters.Split(Operators, StringSplitOptions.RemoveEmptyEntries)
 					.Select(t => t.Trim()).ToArray();
-			Names = Regex.Split(filterSplits[0], EscapedPipePattern).Select(t => t.Trim()).ToArray();
-			Values = filterSplits.Length > 1 ? Regex.Split(filterSplits[1], EscapedPipePattern).Select(t => t.Trim()).ToArray() : null;
+			Names = Regex.Split(filterSplits[0], SplitPattern).Select(t => t.Trim()).ToArray();
+			Values = filterSplits.Length > 1 ? Regex.Split(filterSplits[1], SplitPattern).Select(t => t.Trim()).ToArray() : null;
 			Operator = Array.Find(Operators, o => filters.Contains(o)) ?? "==";
 			ParsedOperator = GetOperatorParsed(Operator);
-			OperatorIsNegated = ParsedOperator != EFilterOperator.NotEquals && Operator.StartsWith("!");
 		}
 
-		private const string EscapedPipePattern = @"(?<!($|[^\\])(\\\\)*?\\)\|";
+		private const string SplitPattern = @"(?<!($|[^\\])(\\\\)*?\\)\|";
 
 		private static readonly string[] Operators = new string[] {
-			"@=",
 			"!@=",
-			"_=",
+			"@=",
 			"!_=",
+			"_=",
 			"!=",
 			"==",
 			">=",
@@ -70,15 +69,6 @@ namespace Luizanac.QueryExtensions.Models
 				default:
 					return EFilterOperator.Equals;
 			}
-		}
-
-		public bool OperatorIsNegated { get; private set; }
-
-		public bool Equals(Term other)
-		{
-			return Names.SequenceEqual(other.Names)
-				&& Values.SequenceEqual(other.Values)
-				&& Operator == other.Operator;
 		}
 	}
 }
