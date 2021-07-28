@@ -25,7 +25,7 @@ namespace Luizanac.QueryExtensions
         public static IOrderedQueryable<TSource> OrderBy<TSource>(this IQueryable<TSource> source, string sort, ECaseType caseType = ECaseType.PascalCase)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
-            if (string.IsNullOrEmpty(sort) || string.IsNullOrWhiteSpace(sort)) throw new ArgumentNullException(nameof(sort));
+            if (string.IsNullOrEmpty(sort) || string.IsNullOrWhiteSpace(sort)) return (IOrderedQueryable<TSource>) source;
 
             var sorter = sort.Split(',');
 
@@ -61,6 +61,8 @@ namespace Luizanac.QueryExtensions
         /// <returns>The source queryable with filters aplied</returns>
         public static IQueryable<TSource> Filter<TSource>(this IQueryable<TSource> query, string filters)
         {
+            if (string.IsNullOrEmpty(filters) || string.IsNullOrWhiteSpace(filters)) return query;
+
             foreach (var filter in filters.Split(',', StringSplitOptions.RemoveEmptyEntries))
             {
                 if (string.IsNullOrWhiteSpace(filter))

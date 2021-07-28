@@ -7,26 +7,26 @@ using Microsoft.Extensions.Logging;
 
 namespace Luizanac.QueryExtensions.Contexts.App
 {
-    public class AppDbContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("LOCAL_DB_CONNECTION_STRING"));
-            //optionsBuilder.LogTo(Console.WriteLine, LogLevel.Trace);
-        }
+	public class AppDbContext : DbContext
+	{
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("LOCAL_DB_CONNECTION_STRING"));
+			//optionsBuilder.LogTo(Console.WriteLine, LogLevel.Trace);
+		}
 
-        public DbSet<Client> Clients { get; protected set; }
+		public DbSet<Client> Clients { get; protected set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
-               e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
-                property.SetColumnType("varchar(100)");
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
+			   e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
+				property.SetColumnType("varchar(100)");
 
-            modelBuilder
-                .ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+			modelBuilder
+				.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
-            modelBuilder.Entity<Client>().Seed();
-        }
-    }
+			modelBuilder.Entity<Client>().Seed();
+		}
+	}
 }
