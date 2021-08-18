@@ -5,6 +5,7 @@ using Luizanac.QueryExtensions.Contexts.App;
 using System.Linq;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Luizanac.QueryExtensions.Seeds.App;
 
 var serializerOptions = new JsonSerializerOptions
 {
@@ -21,18 +22,18 @@ var serializerOptions = new JsonSerializerOptions
 // @= Contains / !@= NotContains = generate Like/ILike %value%
 // _= StartsWith / !_= NotStartsWith = generate Like/ILike value%
 
-var sort = "age,asc";
+var sort = "address.city,asc";
 // var filters = "age>=16,email@=hotmail.com,name_=h";
-var filters = "age>=16,email@=hotmail.com|gmail.com,name|email_=luiz";
+var filters = "age>=16,email@=hotmail.com|gmail.com,name|email_=l,address.city_=lake,address.number==199";
 
 using var dbContext = new AppDbContext();
-var timer = Stopwatch.StartNew();
 
-timer.Start();
-var totalServerData = await dbContext.Clients.CountAsync();
+if (!dbContext.Clients.Any())
+	dbContext.Seed();
+
 var sqlString =
 	dbContext.Clients
-		.AsNoTracking()
+		.AsNoTrackingWithIdentityResolution()
 		.Filter(filters)
 		.OrderBy(sort).ToQueryString();
 
@@ -40,17 +41,9 @@ Console.WriteLine($"\n\n{sqlString}\n\n");
 
 var paginatedData =
 	await dbContext.Clients
-		.AsNoTracking()
+		.AsNoTrackingWithIdentityResolution()
 		.Filter(filters)
 		.OrderBy(sort)
 		.Paginate(1, 3);
 
-
-timer.Stop();
-
-Console.WriteLine($"{timer.ElapsedMilliseconds} ms");
-Console.WriteLine($"TotalServerData: {totalServerData}");
-Console.WriteLine($"Pages: {paginatedData.TotalPages}");
-Console.WriteLine($"CurrentPage: {paginatedData.CurrentPage}");
-Console.WriteLine($"TotalDataCount: {paginatedData.TotalDataCount}");
 Console.WriteLine(JsonSerializer.Serialize(paginatedData.Data, serializerOptions));

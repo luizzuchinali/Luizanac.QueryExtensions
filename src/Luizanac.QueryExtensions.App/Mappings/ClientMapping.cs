@@ -13,6 +13,14 @@ namespace Luizanac.QueryExtensions.App.Mappings
             builder.Property(x => x.Email).IsRequired();
             builder.Property(x => x.Age).IsRequired();
 
+            builder.OwnsOne(x => x.Address, x =>
+            {
+                x.Property(x => x.City).HasColumnName(nameof(Address.City));
+                x.Property(x => x.Street).HasColumnName(nameof(Address.Street));
+                x.Property(x => x.Number).HasColumnName(nameof(Address.Number));
+                x.Property(x => x.State).HasColumnName(nameof(Address.State));
+            });
+
             builder.ToTable("Clients");
         }
     }

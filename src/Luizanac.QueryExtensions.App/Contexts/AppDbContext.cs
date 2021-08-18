@@ -11,7 +11,8 @@ namespace Luizanac.QueryExtensions.Contexts.App
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("LOCAL_DB_CONNECTION_STRING"));
+			var cs = "Server=localhost;Database=QueryExtensions;User Id=sa;Password=Secret123!;";
+			optionsBuilder.UseSqlServer(cs);
 			//optionsBuilder.LogTo(Console.WriteLine, LogLevel.Trace);
 		}
 
@@ -25,8 +26,6 @@ namespace Luizanac.QueryExtensions.Contexts.App
 
 			modelBuilder
 				.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
-
-			modelBuilder.Entity<Client>().Seed();
 		}
 	}
 }
