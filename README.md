@@ -163,6 +163,3 @@ var paginatedData = await dbContext.Clients.AsNoTracking()
 * 1.1.0 - Added the capability to use logical operator OR ( | ) and code improvements.
 * 1.1.1 - Github actions
 * 1.1.2 - Fix access of navigation properties
-
-## License
-Luizanac.QueryExtensions is licensed under Apache 2.0.
