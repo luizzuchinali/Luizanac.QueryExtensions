@@ -1,6 +1,6 @@
 using Luizanac.QueryExtensions.Abstractions.Interfaces;
 
-namespace Luizanac.QueryExtensions.Abstractions.Models
+namespace Luizanac.QueryExtensions.Abstractions
 {
     /// <summary>
     ///  The helper class to hold paginated data

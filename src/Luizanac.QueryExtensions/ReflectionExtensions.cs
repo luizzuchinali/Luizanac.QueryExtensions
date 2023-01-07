@@ -3,6 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Luizanac.QueryExtensions.Abstractions.Enums;
+using Luizanac.QueryExtensions.Abstractions.Extensions;
 
 namespace Luizanac.QueryExtensions
 {
@@ -43,12 +44,6 @@ namespace Luizanac.QueryExtensions
 				}).First();
 
 			return method;
-		}
-
-		public static string[] GetProperties(this string str, char splitSeparator = '.', ECaseType caseType = ECaseType.PascalCase)
-		{
-			var properties = str.Split(splitSeparator, StringSplitOptions.RemoveEmptyEntries);
-			return properties.Select(x => x.ConvertCase(caseType)).ToArray();
 		}
 	}
 }
