@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
 <a name="2.0.0"></a>
+## [2.0.0](https://www.github.com/luizanac/Luizanac.QueryExtensions/releases/tag/v2.0.0) (2023-1-8)
+
+### Breaking Changes
+
+* project unification ([7893a65](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/7893a65979ca90cb99449284380fca9aeb7d39ff))
+
+### Other
+
+* add comments ([b77f932](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/b77f93286b3d31586b86830efab93e245e29b8ef))
+* added interfaces ([1fe16c8](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/1fe16c81d657ddb45786128e4ed789a6a8fd312d))
+* added link to abstraction package ([15866fb](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/15866fb150c4627c54efb35da0973bcab0b5f4ca))
+* added new package description, changed package name and renamed namespaces ([a3b978a](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/a3b978aa9f314262325cf74b641a1b71f1e16ff0))
+* added project site ([e4695b0](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/e4695b0ee0629204182ba19715417f33a169b213))
+* Added the capability to use logical operator OR ( | ) and code improvements. ([2b7a91c](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/2b7a91c5c00b576eb568b2d64474b3e6a5057300))
+* alterando versão ([b89e20f](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/b89e20f6a309fbc5dbbbccaf90f673b59b62ae50))
+* correções de bugs no ef 3.1 e melhorias de performance ([1343edc](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/1343edc17d9f553bc69cc4cba4918abc6e8a9b9e))
+* Create LICENSE ([25e923a](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/25e923add0fdfac8f12cbcf4238851492691a6e3))
+* Create publish-abstractions-package.yml ([84ef647](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/84ef647f179cce3ef6e1a2d131c85abadfd9658f))
+* Create publish-main-package.yml ([57eaf93](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/57eaf93dc7b1f05c8bf3beffbe9249aa812aada3))
+* Create README.md ([30ebe6d](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/30ebe6d6844fd6ff2f2e5c49b0719428bc068704))
+* documentation finished ([e016723](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/e0167234bf6413665ca41b8f28b989f46f92bb26))
+* filter feature finished ([f92126e](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/f92126e5d3de0ecc70497425329a9d9293ebcfcd))
+* first batch of improvements in filter funcionality ([a7cec14](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/a7cec14b5aaa26b4a9a557e8fa653c0d2f46b347))
+* first commit ([da42bec](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/da42becddd2b77bb9e3b905a7b80c3ded2939e77))
+* fix navigation properties access ([2234066](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/2234066cb9435b31f09a9cbd8a0af2dadf0706d1))
+* included test app ([6f164de](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/6f164deb1b610cde9d989a19b978c2669902da6b))
+* Merge branch 'development' ([268c85a](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/268c85ac2576b9680afc53dcb50ea588a6cbc89d))
+* Merge branch 'development' ([d4618f9](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/d4618f9c5893057c9838679358ac788eacf926c6))
+* Merge branch 'development' ([3e60edd](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/3e60edd9ce9158328b30f1070cf5312c772a2e31))
+* Merge branch 'master' of https://github.com/luizanac/Luizanac.QueryExtensions ([cd79113](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/cd791139f9f466517c8fafbb6268adbbb694d99d))
+* minor fixed in readme ([924db47](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/924db475f0f05a685ef0b37823a5b21aeed728af))
+* moved mongodb repository and moved common code to abstractions ([2109586](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/210958661ba6fcfbf6fcf45fb4857cb72a04fb86))
+* Ordenação via propriedades de navegação ([240ca8b](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/240ca8b5b92d424cd76d1ea4e11c1b49e3773314))
+* project refactoring ([af75a0f](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/af75a0f3f052b07dc715c76e8ceb6153be4d084f))
+* readme update ([81dd67c](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/81dd67c844ee259ee24d5ee6694ecf55b53cf21f))
+* remove trash resulted from merge of unrelated histories ([de6cc9b](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/de6cc9b9a7431d2bf1ab36718abfde6b0b26fa1f))
+* return source when filsters or sort be null ([91d3251](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/91d3251a44f50adc4255cb423778e674b2790ee9))
+* update ([19bf8cf](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/19bf8cf1209a721c4629656bc75467e9f455cdcf))
+* Update LICENSE ([e0703de](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/e0703deaa29290449436c64d99bbc5b667c3c607))
+* Update LICENSE ([7138c8c](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/7138c8c4cadcbb62c8621b27883dc5b534ae95ab))
+* update nuget img readme ([e9b4ece](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/e9b4ece35ce22ffcb95c4de0fd4a7a62b7e594e8))
+* Update PropertyHelper.cs ([5daabb9](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/5daabb91e5935d1689abed0f3deb88529347db99))
+* Update publish-abstractions-package.yml ([8f7e096](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/8f7e096e9f1dfd3087e3153c38046659b168aa4e))
+* Update publish-abstractions-package.yml ([9eaf0eb](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/9eaf0eb4a989fbd39ecf77d6da4c92ec28477ae7))
+* Update publish-main-package.yml ([ca4517a](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/ca4517a6f4572a8243471e19e6f1a5d61bec11b1))
+* Update publish-main-package.yml ([e648e3f](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/e648e3f4a6370da67d9fe90c8eb0982bca2a7891))
+* update readme ([5fec7da](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/5fec7da18f3e240bf0d94753db4f086fed56413b))
+* Update README.md ([4088c2a](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/4088c2a939e7a2778fc571344cea98118e419677))
+* Update README.md ([9f86cb8](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/9f86cb8fbc3e1ac062ec657a15b7d843b0b94835))
+* Update README.md ([ad2c1ff](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/ad2c1ff19e0198dcce99cc56f5b81e8d4e558153))
+* Update README.md ([f31f4bc](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/f31f4bc92748f1e0dc154b683c02c83db962ad22))
+* change publish action ([f82b684](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/f82b6844d4bf136b23bebac562a29af4785255b4))
+* change user to commit ([23c4d84](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/23c4d84a6f632dd9d451fc987284dd26b2958342))
+* remove bogus from sample project ([f3263e4](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/f3263e497591ffe4e4f8804b9059ed5b639800b0))
+* **release:** 2.0.0 ([c011b91](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/c011b9189988d77cdb2ebd05afac2f3618aeffa4))
+
+<a name="2.0.0"></a>
 ## [2.0.0](https://www.github.com/luizanac/Luizanac.QueryExtensions/releases/tag/v2.0.0) (2023-1-7)
 
 ### Breaking Changes
