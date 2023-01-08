@@ -38,57 +38,6 @@ var clients = await dbContext.Clients.AsNoTracking().OrderBy(sort).ToListAsync()
 //this example will return all cleints classified by their descending name
 ```
 
-## Paginate
-
-To use paginate extension, you only need to pass the **page** and then your page **size**
-
-```C#
-var paginatedData = await dbContext.Clients.AsNoTracking().Paginate(1, 3);
-//This will return a IPagination<IList<Client>> and in Data property you can access your list of objects.
-var clients = paginatedData.Data;
-```
-Here you can see IPagination properties :)
-
-```C#
-public interface IPagination<T>
-{
-    /// <summary>
-    /// The paginated data
-    /// </summary>    
-    T Data { get; set; }
-
-    /// <summary>
-    /// The total pages
-    /// </summary>
-    int TotalPages { get; set; }
-
-    /// <summary>
-    /// The total data count
-    /// </summary>
-    int TotalDataCount { get; set; }
-
-    /// <summary>
-    /// The current page number
-    /// </summary>
-    int CurrentPage { get; set; }
-
-    /// <summary>
-    /// The number of datas to get
-    /// </summary>
-    int Size { get; set; }
-
-    /// <summary>
-    ///  The previous page number
-    /// </summary>
-    int PrevPage { get; set; }
-
-    /// <summary>
-    /// The next page number
-    /// </summary>
-    int NextPage { get; set; }
-}
-```
-
 ## Filter by properties
 
 To use filter extension, you will need to pass a string **"{property}{operator}{data}"** with your conditions separated by commas (Like order by extension, you can use first level navigation properties too).
