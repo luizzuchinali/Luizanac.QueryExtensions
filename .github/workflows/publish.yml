@@ -19,7 +19,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --configuration Release --no-restore
       - name: Install Versionize
         run: dotnet tool install --global Versionize
       - name: Setup git
@@ -62,9 +62,6 @@ jobs:
             } catch (error) {
             core.setFailed(error.message);
             }
-      - name: Publish NuGet Luizanac.QueryExtensions
-        uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
-          PROJECT_FILE_PATH: ./src/Luizanac.QueryExtensions/Luizanac.QueryExtensions.csproj
-          PACKAGE_NAME: Luizanac.QueryExtensions
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish NuGet
+        if: steps.versionize.outcome == 'success'
+        run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
