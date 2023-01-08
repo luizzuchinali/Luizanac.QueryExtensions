@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Luizanac.MongoDB.QueryExtensions.Extensions;
-using Luizanac.QueryExtensions.Abstractions.Enums;
-using Luizanac.QueryExtensions.Abstractions.Extensions;
+using Luizanac.QueryExtensions.Enums;
+using Luizanac.QueryExtensions.Extensions;
 
-namespace Luizanac.QueryExtensions.Abstractions.Sort
+namespace Luizanac.QueryExtensions.Sort
 {
     /// <summary>
     /// Parse a sort string to a list of <see cref="ParsedSort"/>

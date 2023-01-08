@@ -1,14 +1,7 @@
-﻿using System.Text.Json;
-using EntityFrameworkSample.Contexts;
-using EntityFrameworkSample.Seeds;
-using Luizanac.QueryExtensions;
-using Microsoft.EntityFrameworkCore;
-
-var serializerOptions = new JsonSerializerOptions
+﻿var serializerOptions = new JsonSerializerOptions
 {
     WriteIndented = true,
-    PropertyNamingPolicy =
-        JsonNamingPolicy.CamelCase
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
 };
 
 //api/users?sort=asc,name&filter=name@=lui,email!@=@gmail.com,age!=20,age>19"
@@ -28,19 +21,16 @@ using var dbContext = new AppDbContext();
 if (!dbContext.Users.Any())
     dbContext.Seed();
 
-var sqlString =
-    dbContext.Users
-        .AsNoTrackingWithIdentityResolution()
-        .Filter(filters)
-        .OrderBy(sort).ToQueryString();
+var query = dbContext.Users
+    .AsNoTrackingWithIdentityResolution()
+    .Filter(filters)
+    .Paginate(1, 3)
+    .OrderBy(sort);
+
+var sqlString = query.ToQueryString();
 
 Console.WriteLine($"\n\n{sqlString}\n\n");
 
-var paginatedData =
-    await dbContext.Users
-        .AsNoTrackingWithIdentityResolution()
-        .Filter(filters)
-        .OrderBy(sort)
-        .Paginate(1, 3);
+var data = query.ToListAsync();
 
-Console.WriteLine(JsonSerializer.Serialize(paginatedData.Data, serializerOptions));
+Console.WriteLine(JsonSerializer.Serialize(data, serializerOptions));

@@ -1,30 +1,21 @@
-name: CI
+name: publish
 
 on:
   push:
     branches: [ master ]
-    
-jobs:
 
+jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
-      
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '7.0.x'
       - run: dotnet build
-      
       - name: Publish NuGet Luizanac.QueryExtensions
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
-          # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: ./src/Luizanac.QueryExtensions/Luizanac.QueryExtensions.csproj
-          # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: Luizanac.QueryExtensions
-          # API key to authenticate with NuGet server
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-        

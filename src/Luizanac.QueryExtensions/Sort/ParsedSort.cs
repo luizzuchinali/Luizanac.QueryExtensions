@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Luizanac.QueryExtensions.Abstractions.Sort
+namespace Luizanac.QueryExtensions.Sort
 {
     public class ParsedSort
     {

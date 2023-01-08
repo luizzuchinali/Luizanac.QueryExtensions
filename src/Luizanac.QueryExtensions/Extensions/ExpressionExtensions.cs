@@ -3,11 +3,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 
-namespace Luizanac.MongoDB.QueryExtensions.Extensions
+namespace Luizanac.QueryExtensions.Extensions
 {
-    //TODO:1- move to abstractions lib
-    //TODO:2- change string to value type and pass by ref
-
     public static class ExpressionExtensions
     {
         /// <summary>

@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using System.Text;
-using Luizanac.QueryExtensions.Abstractions.Enums;
+using Luizanac.QueryExtensions.Enums;
 
-namespace Luizanac.QueryExtensions.Abstractions.Extensions
+namespace Luizanac.QueryExtensions.Extensions
 {
     public static class StringExtensions
     {

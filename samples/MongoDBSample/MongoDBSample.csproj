@@ -8,8 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Luizanac.QueryExtensions.MongoDB\Luizanac.QueryExtensions.MongoDB.csproj" />
+      <ProjectReference Include="..\..\src\Luizanac.QueryExtensions\Luizanac.QueryExtensions.csproj" />
       <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
     </ItemGroup>
 
 </Project>

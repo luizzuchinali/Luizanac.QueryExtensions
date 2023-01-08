@@ -1,4 +1,4 @@
-namespace Luizanac.QueryExtensions.Abstractions.Enums
+namespace Luizanac.QueryExtensions.Enums
 {
     public enum ECaseType
     {

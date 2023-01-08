@@ -1,4 +1,4 @@
-﻿namespace Luizanac.QueryExtensions.Abstractions.Sort
+﻿namespace Luizanac.QueryExtensions.Sort
 {
     public enum ESortType
     {

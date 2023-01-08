@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Luizanac.QueryExtensions.Filter;
 
-namespace Luizanac.MongoDB.QueryExtensions.Filter
+namespace Luizanac.QueryExtensions.Filter
 {
     public class ParsedFilter
     {

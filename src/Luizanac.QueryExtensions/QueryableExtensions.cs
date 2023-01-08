@@ -1,17 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Threading.Tasks;
-using Luizanac.MongoDB.QueryExtensions.Filter;
-using Microsoft.EntityFrameworkCore;
-using Luizanac.QueryExtensions.Abstractions;
-using Luizanac.QueryExtensions.Abstractions.Enums;
-using Luizanac.QueryExtensions.Abstractions.Extensions;
-using Luizanac.QueryExtensions.Abstractions.Interfaces;
+using System.ComponentModel;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+using Luizanac.QueryExtensions.Enums;
 using Luizanac.QueryExtensions.Filter;
+using Luizanac.QueryExtensions.Extensions;
 
 namespace Luizanac.QueryExtensions
 {
@@ -167,27 +162,18 @@ namespace Luizanac.QueryExtensions
         }
 
         /// <summary>
-        /// Paginates an IQueryable
+        /// Paginates an <see cref="IQueryable{T}"/>
         /// </summary>
         /// <param name="query">The IQueriable</param>
         /// <param name="page">Currrent page</param>
         /// <param name="size">Number of data to get</param>
-        /// <typeparam name="T">Type of the data</typeparam>
-        /// <returns></returns>
-        public static async Task<IPagination<IList<T>>> Paginate<T>(this IQueryable<T> query, int page, int size)
+        /// <typeparam name="T">The entity type</typeparam>
+        /// <returns><see cref="IQueryable{T}"/> paginated</returns>
+        public static IQueryable<T> Paginate<T>(this IQueryable<T> query, int page, int size)
         {
             page = page <= 0 ? 1 : page;
-
-            var entries = query.Skip((page - 1) * size).Take(size);
-            var count = await query.CountAsync();
-            var totalPages = (int)Math.Ceiling(count / (float)size);
-
-            var firstPage = 1;
-            var lastPage = totalPages;
-            var prevPage = page > firstPage ? page - 1 : firstPage;
-            var nextPage = page < lastPage ? page + 1 : lastPage;
-            return new Pagination<IList<T>>(await entries.ToListAsync(), totalPages, page, size, prevPage, nextPage,
-                count);
+            query = query.Skip((page - 1) * size).Take(size);
+            return query;
         }
 
         // public static HttpContext SetPaginationHeader<T>(this HttpContext httpContext, string route, Pagination<T> pagination){
