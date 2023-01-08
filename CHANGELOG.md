@@ -8,4 +8,4 @@ All notable changes to this project will be documented in this file. See [versio
 ### Breaking Changes
 
 * project unification ([7893a65](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/7893a65979ca90cb99449284380fca9aeb7d39ff))
-
+* pagination method no more use ef ([7893a65](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/7893a65979ca90cb99449284380fca9aeb7d39ff))
