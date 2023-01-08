@@ -58,11 +58,3 @@ All notable changes to this project will be documented in this file. See [versio
 * change user to commit ([23c4d84](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/23c4d84a6f632dd9d451fc987284dd26b2958342))
 * remove bogus from sample project ([f3263e4](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/f3263e497591ffe4e4f8804b9059ed5b639800b0))
 * **release:** 2.0.0 ([c011b91](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/c011b9189988d77cdb2ebd05afac2f3618aeffa4))
-
-<a name="2.0.0"></a>
-## [2.0.0](https://www.github.com/luizanac/Luizanac.QueryExtensions/releases/tag/v2.0.0) (2023-1-7)
-
-### Breaking Changes
-
-* project unification ([7893a65](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/7893a65979ca90cb99449284380fca9aeb7d39ff))
-* pagination method no more use ef ([7893a65](https://www.github.com/luizanac/Luizanac.QueryExtensions/commit/7893a65979ca90cb99449284380fca9aeb7d39ff))
